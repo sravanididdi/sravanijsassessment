@@ -1,0 +1,220 @@
+<html>
+   <head>
+<style>
+#section{
+    color: white;
+    background-color: rgb(3, 3, 3); width:100%; height:120px;
+    text-align: center ;
+    padding-top: 30px;
+}
+h1{
+   font-size: xx-large;
+}
+#section1{
+    color: white;
+    background-color: rgb(82, 78, 78); width:70%; height:260px;
+    padding-top: 30px;
+    margin: 0px 200px;
+    text-align: center;
+    font-size: large;
+}
+
+#section2{
+    color: white;
+    background-color: rgb(82, 78, 78); width:70%; height:1000px;
+    padding-top: 30px;
+    margin: 0px 200px;
+    text-align: center;
+    font-size: large;
+}
+#footer{
+        background-color: rgb(3, 3, 3); width:100%; height:120px;
+        color: white;
+        position: relative;
+        display: inline-block;
+    }  
+   
+    #footer{
+        background-color: rgb(10, 10, 10); width:100%; height:120px;
+        color: white;
+        margin: 300px 0px;
+        position: relative;
+        bottom: 300px;
+        
+         
+    }
+    #footermenu{
+        font-size: x-large;
+        padding-top : 40px;
+        word-spacing: 35px;
+        margin-left: 50px;
+        color: white;
+    }
+    #footermenu a{
+      color: white;
+    }
+    #lastbox2{
+      color: rgb(247, 244, 244);
+        float: right;
+        font-size: medium;
+        margin-right: 50px;
+    }
+</style>
+   </head>
+​
+   <body>
+​
+​
+​ <div id="Section">
+     <h1>Contact Us</h1>
+     </div>
+     <form name="myform" onsubmit="return Validpassword()" action="thankyou.html" method="post">
+​<div id="Section1">
+      <!--Section 1 Radio button code starts--> 
+      
+<br><b> <h1>Booking Details</h1></b><br>
+<input type="radio" name="one" id="One Way" value="One Way" onclick=" checkButton()">One Way
+<input type="radio" name="one" id="Round Trip" value="Round Trip"  onclick=" checkButton()" >Round Trip<br><br>
+from: <input type="text" name="mylocation" id="newmine" required="required"> To:<input type="text" name="mydest" id="newmine" required="required" ><br><br>
+Departure: <input type="date" name="depdate" id="newmine" required="required">Return Date:<input type="date" name="mydate" id="newmine" required="required">
+​
+​
+<!--Radio button code Ends--> 
+​
+<!--<button type="button" onclick=" checkButton()"> Submit </button>--> 
+    
+<h3 id="disp" style= "color:green">               </h3>
+<h4 id="error" style= "color:red">                </h4>
+</div>        
+<!--Section  1 Ends -->             
+<div id="Section2">
+<!--Section  2 - Make invisible until radio button selected-->       
+<br><b> <h2>Number of Passengers</h2></b><br>
+      Adults:<input type="text" name="mylocation" id="newmine" > Children:<input type="text" name="mydest" id="newmine" ><br><br>
+      <br><b> <h3>Passengers 1 Details</h3></b>
+      Enter your name: <input type="text" name="myname" id="newmine" pattern="[a-zA-Z]{5,}" title="Only Alphabets with minimum five">
+      Gender:<input type="radio" name="one" id="Male" value="Male" onclick=" checkButton()">Male
+             <input type="radio" name="one" id="Female" value="Female"  onclick=" checkButton()" >Female 
+      Age:<input type="number" name="myage" id="newmine" > <br>
+
+      <br><b> <h3>Passengers 2 Details</h3></b>
+      Enter your name: <input type="text" name="myname" id="newmine" pattern="[a-zA-Z]{5,}" title="Only Alphabets with minimum five">
+      Gender:<input type="radio" name="one" id="Male" value="Male" onclick=" checkButton()">Male
+             <input type="radio" name="one" id="Female" value="Female"  onclick=" checkButton()" >Female 
+      Age:<input type="number" name="myage" id="newmine" > <br>
+
+      <br><b> <h3>Passengers 3 Details</h3></b>
+      Enter your name: <input type="text" name="myname" id="newmine" pattern="[a-zA-Z]{5,}" title="Only Alphabets with minimum five">
+      Gender:<input type="radio" name="one" id="Male" value="Male" onclick=" checkButton()">Male
+             <input type="radio" name="one" id="Female" value="Female"  onclick=" checkButton()" >Female 
+      Age:<input type="number" name="myage" id="newmine" > <br><br>
+      
+                          
+      Enter your email: <input type="text" name="myemail" id="newmine" required="required" ><br><br>
+    
+        Enter your Mobile Number: <input type="number" name="mobile" id="newmine" required="required"><br><br>
+        Address:<textarea rows="5" cols="33">
+            This is the default comment...  
+          </textarea><br><br>
+        How did you hear about us?: <input type="text" name="mysource" id="newmine"><br><br>
+        <input type="submit" value="Submit">
+    <!--Section  2 Ends -->    <!--section2.style.display = 'block'; --> 
+    </div>      
+    </form>
+​
+    <script>
+function checkButton() 
+                    {  
+                        if(document.getElementById('One Way').checked) 
+                         { 
+                           document.getElementById("disp").innerHTML = document.getElementById("One Way").value  + " radio button is checked"; 
+                           document.getElementById("Section2").style.display = "block";
+                          } 
+                        else if(document.getElementById('Round Trip').checked) 
+                             { 
+                               document.getElementById("disp").innerHTML = document.getElementById("Round Trip").value + " radio button is checked";   
+                               document.getElementById("Section2").style.display = "block";
+                              } 
+                                       else { 
+                                               document.getElementById("error").innerHTML 
+                                                   = "You have not selected a destination"; 
+                                            } 
+                          
+                                          } 
+                 let currentdate=new Date();
+                 let depdate1=Date(document.myform.depdate.value)
+​
+                 if (depdate1>=currentdate)
+                        {
+                           alert( "enter the correct Date");
+                           return false;
+                        }
+                        let currentdate=new Date();
+                 let futuredate=Date(document.myform.mydate.value)
+​
+                 if (futuredate<currentdate)
+                        {
+                           alert( "enter the correct Date");
+                           return false;
+                        }
+                         
+​
+               let username=document.getElementById("newmine").value;
+                 
+                 if (username== "null" || username == "")
+                        {
+                           alert( "enter correctname");
+                           return false;
+                        }
+​
+           let mymail=document.myform.myemail.value;
+           let attherate=mymail.indexOf("@");
+           let atthedot=mymail.lastIndexOf(".");
+​
+           if (attherate<1 || atthedot<attherate+2 || atthedot>=mymail.length)
+                  {
+                     alert( "enter the correct email");
+                     return false;
+                  }
+​
+let mobile1=(document.myform.mobile.value)
+​
+if (mobile1.length==10)
+    {
+       return true
+    }
+ else      
+        {
+          alert( "enter the correct 10 digits number");
+          return false;
+       }
+​
+​
+​
+​
+​
+​
+​
+​
+     
+​
+    </script>
+     <div id="footer">
+        <div id="footermenu">
+          <a href="#">Home</a>
+          <a href="#">About_Us</a>
+          <a href="#">Services</a>
+          <a href="#">Partners</a>
+          <a href="contact.html">Contact_Us</a></div>
+          <div id="lastbox2">
+            <div id="copyright">@ copyright of SFD4 2022</div>
+        </div>
+        </div>
+        
+      </div>   
+   </body>
+​
+​
+​
+​
+</html>
